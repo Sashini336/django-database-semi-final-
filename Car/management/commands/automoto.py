@@ -22,6 +22,7 @@ class Command(BaseCommand):
                 color=ad["color"],
                 moreInformation=ad["moreInformation"],
                 main_image=image,
+                images_url = ad['images_url']
             )
             if car:
                 for image in ad["image_urls"]:
