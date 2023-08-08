@@ -6,15 +6,15 @@ class MainImageSerializer(serializers.ModelSerializer):
         model = MainImage
         fields = ['image']
         
-class ImageSerializer(serializers.Serializer):
+class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Image
-        fields = ['images']
+        fields = ['image']
 
 class CarSerializer(serializers.ModelSerializer):
     main_image = MainImageSerializer()
-    images = ImageSerializer()
+    images = ImageSerializer(many=True)
 
     class Meta:
         model = Car
-        fields = ['id', 'title', 'price', 'year', 'millage', 'fuel_type', 'transmission', 'horsepower', 'color', 'moreInformation', 'main_image', 'image']
+        fields = ['id', 'title', 'price', 'year', 'millage', 'fuel_type', 'transmission', 'horsepower', 'color', 'moreInformation', 'main_image', 'images']

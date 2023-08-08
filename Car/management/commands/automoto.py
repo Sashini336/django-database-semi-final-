@@ -1,6 +1,6 @@
 from django.core.management import BaseCommand
 from Car.automoto import load_json
-from Car.models import Car,MainImage , Image
+from Car.models import Car, MainImage , Image
 
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):
@@ -22,7 +22,7 @@ class Command(BaseCommand):
                 color=ad["color"],
                 moreInformation=ad["moreInformation"],
                 main_image=image,
-                images_url = ad['images_url']
+                # images_url = ad['images_url'] 
             )
             if car:
                 for image in ad["image_urls"]:
